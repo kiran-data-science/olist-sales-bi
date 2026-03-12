@@ -5,6 +5,7 @@ WITH orders AS (
 items AS (
     SELECT
         order_id,
+ 	ANY_VALUE (seller_id)       AS seller_id,
         COUNT(order_item_id)        AS total_items,
         SUM(price)                  AS total_price,
         SUM(freight_value)          AS total_freight,
@@ -53,6 +54,7 @@ SELECT
 
     -- Financial metrics
     i.total_items,
+    i.seller_id,
     i.total_price,
     i.total_freight,
     i.gmv,

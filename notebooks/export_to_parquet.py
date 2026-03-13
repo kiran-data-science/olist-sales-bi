@@ -2,7 +2,7 @@ import duckdb
 
 conn = duckdb.connect("data/olist.duckdb")
 
-tables = ["fct_orders", "dim_customers", "dim_sellers", "mart_sales_daily"]
+tables = ["fct_orders", "dim_customers", "dim_sellers", "dim_products", "mart_sales_daily"]
 
 for table in tables:
     output_path = f"data/processed/{table}.parquet"
